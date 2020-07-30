@@ -71,7 +71,7 @@
 		},
 		methods:{
 			getPatient(num){
-				axios.get("http://localhost:8083/patient/view?num=" + num).then(result=>{
+				axios.get("http://localhost:8800/patient/view?num=" + num).then(result=>{
 					this.patient = result.data.result;
 				});
 			}

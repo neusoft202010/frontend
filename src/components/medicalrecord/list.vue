@@ -60,7 +60,7 @@
 		},
 		methods:{
 			getList(){
-				axios.get("http://localhost:8065/medicalrecord/getall",{
+				axios.get("http://localhost:8800/medicalrecord/getall",{
 					
 				}).then(result=>{
 					
@@ -70,7 +70,7 @@
 			deletePatient(num){
 				let checkresult = confirm("您确定要删除吗");
 				if(checkresult){
-					axios.post("http://localhost:8065/medicalrecord/delete", {"pid":num}).then(result=>{
+					axios.post("http://localhost:8800/medicalrecord/delete", {"pid":num}).then(result=>{
 						alert(result.data.message);
 						if(result.data.message=="success"){
 							this.getList();

@@ -57,7 +57,7 @@
 		},
 		methods:{
 			getList(){
-				axios.get("http://localhost:8083/sickroom/getall",{
+				axios.get("http://localhost:8800/sickroom/getall",{
 					
 				}).then(result=>{
 					
@@ -67,7 +67,7 @@
 			deleteSickroom(num){
 				let checkresult = confirm("您确定要删除吗");
 				if(checkresult){
-					axios.post("http://localhost:8083/sickroom/delete", {"sid":num}).then(result=>{
+					axios.post("http://localhost:8800/sickroom/delete", {"sid":num}).then(result=>{
 						alert(result.data.message);
 						if(result.data.message=="success"){
 							this.getList();

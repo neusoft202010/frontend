@@ -56,12 +56,12 @@
 		},
 		methods:{
 			getDrug(num){
-				axios.get("http://localhost:8065/drug/view?num=" + num).then(result=>{
+				axios.get("http://localhost:8800/drug/view?num=" + num).then(result=>{
 					this.drug = result.data.result;
 				});
 			},
 			modify(){
-				axios.post("http://localhost:8065/drug/modify", this.drug).then(result=>{
+				axios.post("http://localhost:8800/drug/modify", this.drug).then(result=>{
 					if(result.data.message=="success"){
 						alert("信息修改成功");
 					}

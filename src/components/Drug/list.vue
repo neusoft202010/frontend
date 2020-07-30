@@ -60,7 +60,7 @@
 		},
 		methods:{
 			getList(){
-				axios.get("http://localhost:8065/drug/getall",{
+				axios.get("http://localhost:8800/drug/getall",{
 					
 				}).then(result=>{
 					
@@ -70,7 +70,7 @@
 			deletePatient(num){
 				let checkresult = confirm("您确定要删除吗");
 				if(checkresult){
-					axios.post("http://localhost:8065/drug/delete", {"drugid":num}).then(result=>{
+					axios.post("http://localhost:8800/drug/delete", {"drugid":num}).then(result=>{
 						alert(result.data.message);
 						if(result.data.message=="success"){
 							this.getList();

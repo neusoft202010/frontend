@@ -51,7 +51,7 @@
 		},
 		methods:{
 			add(){
-				axios.post("http://localhost:8065/drug/add", this.drug).then(result=>{
+				axios.post("http://localhost:8800/drug/add", this.drug).then(result=>{
 					if(result.data.message=="success"){
 						alert("信息添加成功");
 					}

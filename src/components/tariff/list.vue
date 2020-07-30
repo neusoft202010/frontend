@@ -60,7 +60,7 @@
 		},
 		methods:{
 			getList(){
-				axios.get("http://localhost:8083/tariff/getall",{
+				axios.get("http://localhost:8800/tariff/getall",{
 					
 				}).then(result=>{
 					

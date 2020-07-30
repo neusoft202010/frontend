@@ -62,12 +62,12 @@
 		},
 		methods:{
 			getIndrug(num){
-				axios.get("http://localhost:8065/indrug/view?num=" + num).then(result=>{
+				axios.get("http://localhost:8800/indrug/view?num=" + num).then(result=>{
 					this.indrug = result.data.result;
 				});
 			},
 			modify(){
-				axios.post("http://localhost:8065/indrug/modify", this.indrug).then(result=>{
+				axios.post("http://localhost:8800/indrug/modify", this.indrug).then(result=>{
 					if(result.data.message=="success"){
 						alert("信息修改成功");
 					}

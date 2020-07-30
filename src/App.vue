@@ -32,12 +32,14 @@
             <img src="./assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
-            <p>管理员</p>
-            <router-link to="/login"><i class="fa fa-circle text-success"></i>登录</router-link>
+            <p v-if="loginuser!=null">{{loginuser.name}}</p>
+			<p v-else>未登录</p>
+            <router-link v-if="loginuser!=null" to="/login"><i class="fa fa-circle text-success"></i>注销</router-link>
+			<router-link v-else to="/login"><i class="fa fa-circle text-success"></i>登录</router-link>
           </div>
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu" data-widget="tree">
+        <ul v-if="loginuser!=null" class="sidebar-menu" data-widget="tree">
           <li class="header">系统功能主菜单</li>
 		  <li class="treeview">
 		    <router-link to="/clinic">
@@ -63,6 +65,81 @@
               <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
             </ul>
           </li>
+		  <li class="treeview">
+		    <router-link to="/patient">
+		      <i class="fa fa-dashboard"></i> <span>病人管理</span>
+		      <span class="pull-right-container">
+		        <i class="fa fa-angle-left pull-right"></i>
+		      </span>
+		    </router-link>
+		    <ul class="treeview-menu">
+		      <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+		      <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+		    </ul>
+		  </li>
+		  <li class="treeview">
+		    <router-link to="/sickroom">
+		      <i class="fa fa-dashboard"></i> <span>病房管理</span>
+		      <span class="pull-right-container">
+		        <i class="fa fa-angle-left pull-right"></i>
+		      </span>
+		    </router-link>
+		    <ul class="treeview-menu">
+		      <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+		      <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+		    </ul>
+		  </li>
+		  <li class="treeview">
+		    <router-link to="/tariff">
+		      <i class="fa fa-dashboard"></i> <span>缴费信息管理</span>
+		      <span class="pull-right-container">
+		        <i class="fa fa-angle-left pull-right"></i>
+		      </span>
+		    </router-link>
+		    <ul class="treeview-menu">
+		      <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+		      <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+		    </ul>
+		  </li>
+		  <li class="treeview">
+		    <router-link to="/medicalrecord">
+		      <i class="fa fa-dashboard"></i> <span>病例管理</span>
+		      <span class="pull-right-container">
+		        <i class="fa fa-angle-left pull-right"></i>
+		      </span>
+		    </router-link>
+		    <ul class="treeview-menu">
+		      <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+		      <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+		    </ul>
+		  </li>
+		  <li class="treeview">
+		    <router-link to="/drug">
+		      <i class="fa fa-dashboard"></i> <span>药品管理</span>
+		      <span class="pull-right-container">
+		        <i class="fa fa-angle-left pull-right"></i>
+		      </span>
+		    </router-link>
+		    <ul class="treeview-menu">
+		      <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+		      <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+		    </ul>
+		  </li>
+		  <li class="treeview">
+		    <router-link to="/indrug">
+		      <i class="fa fa-dashboard"></i> <span>进药记录管理</span>
+		      <span class="pull-right-container">
+		        <i class="fa fa-angle-left pull-right"></i>
+		      </span>
+		    </router-link>
+		    <ul class="treeview-menu">
+		      <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+		      <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+		    </ul>
+		  </li>
+		  
+		  
+		  
         </ul>
       </section>
       <!-- /.sidebar -->
@@ -109,6 +186,20 @@
     </footer>
   </div>
 </template>
+
+<script>
+	export default{
+		name:"App",
+		data(){
+			return{};
+		},
+		computed:{
+			loginuser(){
+				return this.$store.getters.loginuser;
+			}
+		}
+	}
+</script>
 
 <style>
 	@import url("assets/bower_components/bootstrap/dist/css/bootstrap.min.css");

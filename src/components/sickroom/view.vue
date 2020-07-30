@@ -51,7 +51,7 @@
 		},
 		methods:{
 			getSickroom(num){
-				axios.get("http://localhost:8083/sickroom/view?num=" + num).then(result=>{
+				axios.get("http://localhost:8800/sickroom/view?num=" + num).then(result=>{
 					this.sickroom = result.data.result;
 				});
 			}

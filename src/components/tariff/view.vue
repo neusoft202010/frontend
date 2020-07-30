@@ -60,7 +60,7 @@
 		},
 		methods:{
 			getTariff(num){
-				axios.get("http://localhost:8083/tariff/view?num=" + num).then(result=>{
+				axios.get("http://localhost:8800/tariff/view?num=" + num).then(result=>{
 					this.tariff = result.data.result;
 				});
 			}

@@ -65,7 +65,7 @@
 		},
 		methods:{
 			getList(){
-				axios.get("http://localhost:8083/patient/getall",{
+				axios.get("http://localhost:8800/patient/getall",{
 					
 				}).then(result=>{
 					

@@ -56,12 +56,12 @@
 		},
 		methods:{
 			getDrug(num){
-				axios.get("http://localhost:8065/medicalrecord/view?num=" + num).then(result=>{
+				axios.get("http://localhost:8800/medicalrecord/view?num=" + num).then(result=>{
 					this.medicalrecord = result.data.result;
 				});
 			},
 			modify(){
-				axios.post("http://localhost:8065/medicalrecord/modify", this.medicalrecord).then(result=>{
+				axios.post("http://localhost:8800/medicalrecord/modify", this.medicalrecord).then(result=>{
 					if(result.data.message=="success"){
 						alert("信息修改成功");
 					}

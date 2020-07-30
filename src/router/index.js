@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from './../store/index'
 
 import AdminLogin from "./../components/admin/login.vue"
 import HomeMain from "./../components/home/main.vue"
@@ -92,7 +93,7 @@ Vue.use(VueRouter)
 		{path:"view/:num", name:"tariffview", component:TariffView},
 		{path:"", redirect:"list"}
 	]},
-	{path:"/drug", name:"drugmain", component:DrugtMain, children:[
+	{path:"/drug", name:"drugmain", component:DrugMain, children:[
 		{path:"list", name:"druglist", component:DrugList},
 		{path:"add", name:"drugadd", component:DrugAdd},
 		{path:"modify/:num", name:"drugmodify", component:DrugModify},
@@ -119,6 +120,20 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to,from,next)=>{
+	if(to.path=="/login"){
+		next();
+	}
+	else{
+		if(store.getters.loginuser!=null){
+			next();
+		}
+		else{
+			next("/login");
+		}
+	}
 })
 
 export default router

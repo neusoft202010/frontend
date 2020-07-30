@@ -59,7 +59,7 @@
 		},
 		methods:{
 			add(){
-				axios.post("http://localhost:8083/patient/add", this.patient).then(result=>{
+				axios.post("http://localhost:8800/patient/add", this.patient).then(result=>{
 					if(result.data.message=="success"){
 						alert("信息添加成功");
 					}

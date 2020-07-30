@@ -46,12 +46,12 @@
 		},
 		methods:{
 			getSickroom(num){
-				axios.get("http://localhost:8083/sickroom/view?num=" + num).then(result=>{
+				axios.get("http://localhost:8800/sickroom/view?num=" + num).then(result=>{
 					this.sickroom = result.data.result;
 				});
 			},
 			modify(){
-				axios.post("http://localhost:8083/sickroom/modify", this.sickroom).then(result=>{
+				axios.post("http://localhost:8800/sickroom/modify", this.sickroom).then(result=>{
 					if(result.data.message=="success"){
 						alert("信息修改成功");
 					}

@@ -46,12 +46,12 @@
 		},
 		methods:{
 			getTariff(num){
-				axios.get("http://localhost:8083/tariff/view?num=" + num).then(result=>{
+				axios.get("http://localhost:8800/tariff/view?num=" + num).then(result=>{
 					this.tariff= result.data.result;
 				});
 			},
 			modify(){
-				axios.post("http://localhost:8083/tariff/modify", this.tariff).then(result=>{
+				axios.post("http://localhost:8800/tariff/modify", this.tariff).then(result=>{
 					if(result.data.message=="success"){
 						alert("信息修改成功");
 					}
