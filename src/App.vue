@@ -39,42 +39,30 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">系统功能主菜单</li>
+		  <li class="treeview">
+		    <router-link to="/clinic">
+		      <i class="fa fa-dashboard"></i> <span>科室管理</span>
+		      <span class="pull-right-container">
+		        <i class="fa fa-angle-left pull-right"></i>
+		      </span>
+		    </router-link>
+		    <ul class="treeview-menu">
+		      <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+		      <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+		    </ul>
+		  </li>
           <li class="treeview">
-            <a href="#">
-              <i class="fa fa-dashboard"></i> <span>科室管理</span>
+            <router-link to="/doctor">
+              <i class="fa fa-dashboard"></i> <span>医生管理</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
-            </a>
+            </router-link>
             <ul class="treeview-menu">
               <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
               <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
             </ul>
           </li>
-		  <li class="treeview">
-		    <a href="#">
-		      <i class="fa fa-dashboard"></i> <span>病人管理</span>
-		      <span class="pull-right-container">
-		        <i class="fa fa-angle-left pull-right"></i>
-		      </span>
-		    </a>
-		    <ul class="treeview-menu">
-		      <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-		      <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-		    </ul>
-		  </li>
-		  <li class="treeview">
-		    <a href="#">
-		      <i class="fa fa-dashboard"></i> <span>药品管理</span>
-		      <span class="pull-right-container">
-		        <i class="fa fa-angle-left pull-right"></i>
-		      </span>
-		    </a>
-		    <ul class="treeview-menu">
-		      <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-		      <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-		    </ul>
-		  </li>
         </ul>
       </section>
       <!-- /.sidebar -->
@@ -91,9 +79,9 @@
           <small>子功能</small>
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="#">Examples</a></li>
-          <li class="active">Blank page</li>
+          <li><router-link to="/"><i class="fa fa-dashboard"></i>首页</router-link></li>
+          <li><a href="#"></a></li>
+          <li class="active"></li>
         </ol>
       </section>
     
@@ -103,7 +91,7 @@
         <!-- Default box -->
         <div class="box"> 
           <div class="box-body">
-            主显示区
+            <router-view></router-view>
           </div>
         </div>
         <!-- /.box -->
