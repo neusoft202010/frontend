@@ -15,9 +15,9 @@
 				<table class="table">
 				  <thead class="thead-dark">
 				    <tr>
-				      <th scope="col">PID</th>
-				      <th scope="col">DID</th>
-				      <th scope="col">DRUGID</th>
+				      <th scope="col">病人ID</th>
+				      <th scope="col">医生ID</th>
+				      <th scope="col">药品ID</th>
 				     
 				    </tr>
 				  </thead>
@@ -28,7 +28,7 @@
 					  <td>{{mm.drugid}}</td>
 					  
 					  <td><router-link v-bind:to="'/medicalrecord/modify/' + mm.pid" class="btn btn-primary">修改</router-link>
-					    		<a href="#" v-on:click="deleteDrug(mm.pid)" class="btn btn-danger">删除</a>
+					    		<a href="#" v-on:click="deleteMedicalRecord(mm.pid)" class="btn btn-danger">删除</a>
 					    		<router-link to="/drug/view" class="btn btn-warning">查看</router-link>
 					  </td>
 					</tr>
@@ -51,8 +51,6 @@
 		data(){
 			return {
 				medicalrecordList:[]
-				
-				
 			};
 		},
 		created() {
@@ -60,19 +58,19 @@
 		},
 		methods:{
 			getList(){
-				axios.get("http://localhost:8800/medicalrecord/getall",{
+				axios.get("http://localhost:8800/medicalrecord/list/all/page",{
 					
 				}).then(result=>{
 					
 					this.medicalrecordList = result.data.list;
 				});
 			},
-			deletePatient(num){
+			deleteMedicalRecord(pid){
 				let checkresult = confirm("您确定要删除吗");
 				if(checkresult){
-					axios.post("http://localhost:8800/medicalrecord/delete", {"pid":num}).then(result=>{
+					axios.post("http://localhost:8800/medicalrecord/delete", {"pid":pid}).then(result=>{
 						alert(result.data.message);
-						if(result.data.message=="success"){
+						if(result.data.status=="OK"){
 							this.getList();
 						}
 					});
